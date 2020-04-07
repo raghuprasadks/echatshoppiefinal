@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eShoppie</title>
+    <style type="text/css">
+    	
+    	body{
+        background-color: lightblue;
+        margin: 50px;
+        font-family: arial;
+
+    }
+
+    h1{
+        margin: auto;
+        text-align: center;
+    }
+    h3{
+    	display: inline-block;
+    	width:33%;
+    }
+    
+    div{
+        border: 2px solid blue;
+        height: 200px;
+        width: 400px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    label {
+  width:100px;
+  display: inline-block;
+}
+button{
+    margin-left: 150px;
+}
+    </style>
+</head>
+<body>
+<h1>eShoppie Home</h1>
+<h3>Hi {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Guest{% endif %}!</h3>
+
+{% if current_user.is_authenticated %}
+<h3></h3>
+<h3><a href="/logout">Logout</a></h3>
+{% endif %}
+</body>
+</html>

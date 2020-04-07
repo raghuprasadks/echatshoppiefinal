@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eShoppie-Login</title>
+  <style type="text/css">
+       body{
+        background-color: lightblue;
+        margin: 200px;
+        font-family: arial;
+
+    }
+
+    h1,h3{
+        margin: auto;
+        text-align: center;
+    }
+    
+    div{
+        border: 2px solid blue;
+        height: 100px;
+        width: 300px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    label {
+  width:100px;
+  display: inline-block;
+}
+button{
+    margin-left: 150px;
+}
+    
+</style>
+</head>
+<body>
+<h1>Login</h1>
+<h3>{{ message }}</h3>
+<div>
+<form method="post" action="/login">
+    <label>Username:</label>
+    <input type="text" name="username">
+    <br>
+    <label>Password:</label>
+    <input type="password" name="password">
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
+</div>
+</body>
+</html>
