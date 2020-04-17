@@ -23,7 +23,7 @@ class User:
         return False
 
     def get_id(self):
-        return self.username
+        return self.email
 
     def check_password(self, password_input):
         return check_password_hash(self.password, password_input)

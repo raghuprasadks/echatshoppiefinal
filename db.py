@@ -44,9 +44,9 @@ def save_user(username, email,mobile,password):
             "password": password_hash
         }
         
-        print('get user :::',get_user(username))
+        print('get user :::',get_user(email))
         
-        if(get_user(username)== None):
+        if(get_user(email)== None):
             print('User does not exists')
         
         # Create a document using the Database API.
@@ -54,7 +54,7 @@ def save_user(username, email,mobile,password):
         
         # Check that the document exists in the database.
             if newDocument.exists():
-                print ("Document '{0}' successfully created.".format(username))
+                print ("Document '{0}' successfully created.".format(email))
                 print("Data committed")
         else:
             print('user  exits')
@@ -64,9 +64,9 @@ def save_user(username, email,mobile,password):
         return 'There was an issue in registering'
     return isUserExists
 
-def get_user(username):
+def get_user(email):
     #user_data = users_collection.find_one({'_id': username})
-    print('get_user',username)
+    print('get_user',email)
     user_data={};
     
     result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
@@ -79,10 +79,10 @@ def get_user(username):
     for record in result_collection:
         print (record)
         print(type(record))
-        print (' email value :get ::',record.get('doc').get('name'))
+        print (' email value :get ::',record.get('doc').get('email'))
         doc=record.get('doc')
         
-        if(doc.get('name')==username):
+        if(doc.get('email')==email):
             pasword_collection=doc.get('password')
             user_data = doc
             isUserPresent=True

@@ -35,14 +35,16 @@ def login():
 
     message = ''
     if request.method == 'POST':
-        username = request.form.get('username')
+        email = request.form.get('email')
         password_input = request.form.get('password')
-        user = get_user(username)
-        print('user :',user)
+        user = get_user(email)
+        print('user :',email)
         #print('user name :',user.username)
 
         if user and user.check_password(password_input):
+            print('login user')
             login_user(user)
+            print('After login user')
             return redirect(url_for('home'))
         else:
             message = 'Failed to login!'
